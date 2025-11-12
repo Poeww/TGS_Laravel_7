@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class PackageController extends Controller
 {
-    // ========================
-    //  API CRUD
-    // ========================
 
     public function index()
     {
@@ -67,10 +64,6 @@ class PackageController extends Controller
         $package->delete();
         return response()->json(['message' => 'Package deleted']);
     }
-
-    // ========================
-    //  VIEW CRUD (Blade)
-    // ========================
 
     public function view()
     {

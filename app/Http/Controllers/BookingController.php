@@ -9,10 +9,6 @@ use Illuminate\Support\Carbon;
 
 class BookingController extends Controller
 {
-    // ========================
-    //  API CRUD
-    // ========================
-
     public function index()
     {
         return response()->json(Booking::all());
@@ -37,7 +33,6 @@ class BookingController extends Controller
             'status' => 'required|in:pending,confirmed,cancelled,completed'
         ]);
 
-        // 🚀 Waktu real-time (Asia/Jakarta)
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $booking = Booking::create([
             'user_id'       => $request->user_id,
@@ -94,10 +89,6 @@ class BookingController extends Controller
         $booking->delete();
         return response()->json(['message' => 'Booking deleted'], 200);
     }
-
-    // ========================
-    //  VIEW CRUD (Blade)
-    // ========================
 
     public function view()
     {
