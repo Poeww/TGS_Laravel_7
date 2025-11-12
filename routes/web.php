@@ -5,3 +5,10 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\BookingController;
 
 Route::get('/', fn() => view('welcome'));
+
+Route::get('/view/packages', [PackageController::class, 'view']);
+Route::get('/view/packages/create', [PackageController::class, 'create']);
+Route::post('/view/packages/store', [PackageController::class, 'storeFromView']);
+Route::get('/view/packages/edit/{id}', [PackageController::class, 'edit']);
+Route::post('/view/packages/update/{id}', [PackageController::class, 'updateFromView']);
+Route::delete('/view/packages/delete/{id}', [PackageController::class, 'destroyFromView']);
